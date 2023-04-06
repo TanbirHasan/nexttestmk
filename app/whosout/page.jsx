@@ -6,6 +6,7 @@ import moment from "moment/moment";
 import { ClockCircleTwoTone, UserOutlined } from "@ant-design/icons";
 import whosout from "../../public/whosoutt.png";
 import Image from "next/image";
+import { BiLogOut } from 'react-icons/Bi';
 
 const employeeLeaveDetails = [
   { name: "John", leaveDate: "2023-04-06" },
@@ -89,7 +90,7 @@ export default function WhosOut() {
       <h3>static</h3>
       <div className="w-full md:w-1/3 bg-whitesmoke-200 mt-10 border-2 border-solid rounded-md pb-5">
         <div className="flex items-center mb-1 shadow-md w-full p-5">
-          <Image src={whosout} width={22} height={28} />
+          <BiLogOut className="text-xl"/>
           <h3 className="text-[18px] font-semibold mx-2">WHO'S OUT</h3>
         </div>
         <div className="">

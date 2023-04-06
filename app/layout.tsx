@@ -35,7 +35,7 @@ export default function RootLayout({
               </a>
               <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
                 <a className="mr-5 hover:text-gray-900">Home</a>
-                <a className="mr-5 hover:text-gray-900">About Us</a>
+                <Link href="/trainings" className="mr-5 hover:text-gray-900">Trainings</Link>
                 <Link href="/testpage" className="mr-5 hover:text-gray-900">Test page</Link>
                 <Link href="/whosout" className="mr-5 hover:text-gray-900">Whos Out</Link>
               </nav>

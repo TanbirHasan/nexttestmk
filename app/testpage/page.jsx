@@ -131,7 +131,7 @@ export default function TestPage() {
               <>
                 <div className="flex justify-between w-full mt-5 items-end ">
                   <div className="flex items-center mb-2 md:mb-0">
-                    <Avatar size="medium" icon={<UserOutlined />} />
+                    <Avatar size={30} icon={<UserOutlined />} />
                     <div className="mx-2">
                       <h6 className="text-[12px] md:text-base">
                         Jeff Tobler
@@ -155,7 +155,7 @@ export default function TestPage() {
               <>
               <div className="flex justify-between w-full mt-5 items-end ">
                   <div className="flex items-center mb-2 md:mb-0">
-                    <Avatar size="medium" icon={<UserOutlined />} />
+                    <Avatar size={30} icon={<UserOutlined />} />
                     <div className="mx-2">
                       <h6 className="text-[12px] md:text-base">
                         Jeff Tobler
@@ -180,7 +180,7 @@ export default function TestPage() {
               <>
               <div className="flex justify-between w-full mt-5 items-end ">
                   <div className="flex items-center mb-2 md:mb-0">
-                    <Avatar size="medium" icon={<UserOutlined />} />
+                    <Avatar size={30} icon={<UserOutlined />} />
                     <div className="mx-2">
                       <h6 className="text-[12px] md:text-base">
                         Jeff Tobler
@@ -204,7 +204,7 @@ export default function TestPage() {
               <>
               <div className="flex justify-between w-full mt-5 items-end ">
                   <div className="flex items-center mb-2 md:mb-0">
-                    <Avatar size="medium" icon={<UserOutlined />} />
+                    <Avatar size={60} icon={<UserOutlined />} />
                     <div className="mx-2">
                       <h6 className="text-[12px] md:text-base">
                         Jeff Tobler
