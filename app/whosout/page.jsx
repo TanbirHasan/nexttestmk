@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Avatar, Card, Col, Divider, Row } from "antd";
 import moment from "moment/moment";
 import { ClockCircleTwoTone, UserOutlined } from "@ant-design/icons";
-import whosout from "../../public/whosoutt.png"
+import whosout from "../../public/whosoutt.png";
 import Image from "next/image";
 
 const employeeLeaveDetails = [
@@ -57,11 +57,11 @@ export default function WhosOut() {
     <div className="m-10">
       <div className="w-1/3 bg-whitesmoke-200 mt-10 border-2 border-solid rounded-md">
         <div className="flex items-center mb-1 shadow-md w-full p-5">
-        <Image src={whosout} width={22} height={28}/>
+          <Image src={whosout} width={22} height={28} />
           <h3 className="text-[18px] font-semibold mx-2">WHO'S OUT</h3>
         </div>
         <div className="py-5">
-          {sortedLeaveStatus.map(([date, members],index,array) => (
+          {sortedLeaveStatus.map(([date, members], index, array) => (
             <div key={date} className=" px-5 ">
               <h3 className="text-[12px] my-2">
                 {date}({members?.length})
@@ -78,9 +78,74 @@ export default function WhosOut() {
                   </Col>
                 ))}
               </Row>
-              {index < array.length - 1 && <Divider style={{ height: "4px" }} className="my-2" />}
+              {index < array.length - 1 && (
+                <Divider style={{ height: "4px" }} className="my-2" />
+              )}
             </div>
           ))}
+        </div>
+      </div>
+
+      <h3>static</h3>
+      <div className="w-full md:w-1/3 bg-whitesmoke-200 mt-10 border-2 border-solid rounded-md pb-5">
+        <div className="flex items-center mb-1 shadow-md w-full p-5">
+          <Image src={whosout} width={22} height={28} />
+          <h3 className="text-[18px] font-semibold mx-2">WHO'S OUT</h3>
+        </div>
+        <div className="">
+          <div className=" px-5 ">
+            <h3 className="text-[12px] my-2">TODAY (5)</h3>
+            <Row gutter={[16, 16]}>
+              <Col>
+                <Avatar size="medium" icon={<UserOutlined />} />
+              </Col>
+              <Col>
+                <Avatar size="medium" icon={<UserOutlined />} />
+              </Col>
+              <Col>
+                <Avatar size="medium" icon={<UserOutlined />} />
+              </Col>
+              <Col>
+                <Avatar size="medium" icon={<UserOutlined />} />
+              </Col>
+              <Col>
+                <Avatar size="medium" icon={<UserOutlined />} />
+              </Col>
+            </Row>
+
+            <Divider style={{ height: "4px" }} className="my-2" />
+          </div>
+        </div>
+        <div className="">
+          <div className=" px-5 ">
+            <h3 className="text-[12px] my-2">TOMORROW (3)</h3>
+            <Row gutter={[16, 16]}>
+              <Col>
+                <Avatar size="medium" icon={<UserOutlined />} />
+              </Col>
+              <Col>
+                <Avatar size="medium" icon={<UserOutlined />} />
+              </Col>
+              <Col>
+                <Avatar size="medium" icon={<UserOutlined />} />
+              </Col>
+            </Row>
+
+            <Divider style={{ height: "4px" }} className="my-2" />
+          </div>
+        </div>
+        <div className="">
+          <div className=" px-5 ">
+            <h3 className="text-[12px] my-2">MONDAY, NOV 21 (2)</h3>
+            <Row gutter={[16, 16]}>
+              <Col>
+                <Avatar size="medium" icon={<UserOutlined />} />
+              </Col>
+              <Col>
+                <Avatar size="medium" icon={<UserOutlined />} />
+              </Col>
+            </Row>
+          </div>
         </div>
       </div>
     </div>

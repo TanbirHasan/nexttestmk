@@ -5,19 +5,24 @@ import { Col, Row, Divider, Avatar } from "antd";
 import { CrownOutlined, UserOutlined } from "@ant-design/icons";
 import Image from "next/image";
 import celibration from "../../public/celibration.png";
-import cake from "../../public/Cake.png"
-import swans from "../../public/Swans.png"
+import cake from "../../public/Cake.png";
+import { BiCake } from 'react-icons/Bi';
+import { GiSwan } from 'react-icons/Gi';
+import { BiParty } from 'react-icons/Bi';
+
+
+import swans from "../../public/Swans.png";
 
 export default function TestPage() {
   const [upcomingCelebrations, setUpcomingCelebrations] = useState([]);
   // Data structure to store celebrations
   const celebrations = [
-    { name: "John Doe's", date: "2023-04-10" ,occassion:"Happy Birthday"},
-    { name: "Jane Doe's", date: "2023-04-15",occassion:"Happy Birthday"},
-    { name: "Mainul Islam", date: "2023-04-07",occassion:"Anniversary"},
-    { name: "Fatema", date: "2023-04-13",occassion:"Happy Birthday"},
-    { name: "Luis ", date: "2023-04-11",occassion:"Anniversary" },
-    { name: "Tanbir", date: "2023-04-10",occassion:"Happy Birthday" },
+    { name: "John Doe's", date: "2023-04-10", occassion: "Happy Birthday" },
+    { name: "Jane Doe's", date: "2023-04-15", occassion: "Happy Birthday" },
+    { name: "Mainul Islam", date: "2023-04-07", occassion: "Anniversary" },
+    { name: "Fatema", date: "2023-04-13", occassion: "Happy Birthday" },
+    { name: "Luis ", date: "2023-04-11", occassion: "Anniversary" },
+    { name: "Tanbir", date: "2023-04-10", occassion: "Happy Birthday" },
     // Add more celebrations here...
   ];
 
@@ -71,37 +76,150 @@ export default function TestPage() {
         <div className="w-full sm:w-1/3 bg-whitesmoke-200 mt-10 rounded-lg  border-2 border-solid">
           <div className="flex items-center mb-1 shadow-md p-5">
             <span className="m-1">
-              <Image src={celibration} width={22} height={28}/>
+              <Image src={celibration} width={22} height={28} />
             </span>
             <h3 className="m-1 text-[18px] font-semibold">CELEBRATIONS</h3>
           </div>
 
           <div className="p-5">
             <ul>
-              {upcomingCelebrations.slice(0, 4).map((celebration,index,array) => (
-                <>
-                  <div className="flex flex-col md:flex-row justify-between w-full mt-5 items-end">
-                    <div className="flex items-center mb-2 md:mb-0">
-                      <Avatar size="medium" icon={<UserOutlined />} />
-                      <div className="mx-2">
-                        <h6 className="text-[12px] md:text-base">
-                          {celebration.name}{" "}
-                        </h6>
-                        <span className="text-[12px] md:text-base text-[#003087]">
-                          {getDisplayDate(celebration.date)}
-                        </span>
+              {upcomingCelebrations
+                .slice(0, 4)
+                .map((celebration, index, array) => (
+                  <>
+                    <div className="flex flex-col md:flex-row justify-between w-full mt-5 items-end">
+                      <div className="flex items-center mb-2 md:mb-0">
+                        <Avatar size="medium" icon={<UserOutlined />} />
+                        <div className="mx-2">
+                          <h6 className="text-[12px] md:text-base">
+                            {celebration.name}{" "}
+                          </h6>
+                          <span className="text-[12px] md:text-base text-[#003087]">
+                            {getDisplayDate(celebration.date)}
+                          </span>
+                        </div>
+                      </div>
+                      <div>
+                        {celebration.occassion === "Happy Birthday" ? (
+                          <Image src={cake} width={22} height={28} />
+                        ) : (
+                          <Image src={swans} width={22} height={28} />
+                        )}
                       </div>
                     </div>
-                    <div>
-                      {
-                        celebration.occassion === "Happy Birthday" ? <Image src={cake} width={22} height={28}/> : <Image src={swans} width={22} height={28}/>
-                      }
-                     
+                    {index < array.length - 1 && (
+                      <Divider style={{ height: "4px" }} className="my-2" />
+                    )}
+                  </>
+                ))}
+            </ul>
+          </div>
+        </div>
+
+        <h3 className="my-5"> Static </h3>
+
+        <div className="w-full md:w-1/3 bg-whitesmoke-200 mt-10 rounded-lg  border-2 border-solid pb-5">
+          <div className="flex items-center mb-1 shadow-md p-5">
+            <span className="m-1">
+              <BiParty className="text-xl"/>
+            </span>
+            <h3 className="m-1 text-[18px] font-semibold">CELEBRATIONS</h3>
+          </div>
+
+          <div className="px-5">
+            <ul>
+              <>
+                <div className="flex justify-between w-full mt-5 items-end ">
+                  <div className="flex items-center mb-2 md:mb-0">
+                    <Avatar size="medium" icon={<UserOutlined />} />
+                    <div className="mx-2">
+                      <h6 className="text-[12px] md:text-base">
+                        Jeff Tobler
+                      </h6>
+                      <p className="text-[10px] md:text-base text-[#003087]">
+                        Today-Happy Birthday
+                      </p>
                     </div>
                   </div>
-                  {index < array.length - 1 && <Divider style={{ height: "4px" }} className="my-2" />}
-                </>
-              ))}
+                  <div>
+                   <BiCake className="text-xl"/>
+                  </div>
+                </div>
+                <Divider style={{ height: "4px" }} className="my-2" />
+              </>
+            </ul>
+          </div>
+
+          <div className="px-5">
+            <ul>
+              <>
+              <div className="flex justify-between w-full mt-5 items-end ">
+                  <div className="flex items-center mb-2 md:mb-0">
+                    <Avatar size="medium" icon={<UserOutlined />} />
+                    <div className="mx-2">
+                      <h6 className="text-[12px] md:text-base">
+                        Jeff Tobler
+                      </h6>
+                      <p className="text-[10px] md:text-base text-[#003087]">
+                        Tomorrow - Anniversary
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <GiSwan className="text-xl"/>
+                  </div>
+                </div>
+                <Divider style={{ height: "4px" }} className="my-2" />
+              </>
+            </ul>
+          </div>
+
+
+          <div className="px-5">
+            <ul>
+              <>
+              <div className="flex justify-between w-full mt-5 items-end ">
+                  <div className="flex items-center mb-2 md:mb-0">
+                    <Avatar size="medium" icon={<UserOutlined />} />
+                    <div className="mx-2">
+                      <h6 className="text-[12px] md:text-base">
+                        Jeff Tobler
+                      </h6>
+                      <p className="text-[10px] md:text-base text-[#003087]">
+                        Nov 21 - Happy Birthday
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                   <BiCake className="text-xl"/>
+                  </div>
+                </div>
+                <Divider style={{ height: "4px" }} className="my-2" />
+              </>
+            </ul>
+          </div>
+
+          <div className="px-5">
+            <ul>
+              <>
+              <div className="flex justify-between w-full mt-5 items-end ">
+                  <div className="flex items-center mb-2 md:mb-0">
+                    <Avatar size="medium" icon={<UserOutlined />} />
+                    <div className="mx-2">
+                      <h6 className="text-[12px] md:text-base">
+                        Jeff Tobler
+                      </h6>
+                      <p className="text-[10px] md:text-base text-[#003087]">
+                        Nov 22 - Anniversary
+                      </p>
+                    </div>
+                  </div>
+                  <div>
+                    <GiSwan className="text-xl"/>
+                  </div>
+                </div>
+               
+              </>
             </ul>
           </div>
         </div>
