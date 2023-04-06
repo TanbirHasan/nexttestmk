@@ -3,17 +3,21 @@
 import { useState, useEffect } from "react";
 import { Col, Row, Divider, Avatar } from "antd";
 import { CrownOutlined, UserOutlined } from "@ant-design/icons";
+import Image from "next/image";
+import celibration from "../../public/celibration.png";
+import cake from "../../public/Cake.png"
+import swans from "../../public/Swans.png"
 
 export default function TestPage() {
   const [upcomingCelebrations, setUpcomingCelebrations] = useState([]);
   // Data structure to store celebrations
   const celebrations = [
-    { name: "John Doe's Birthday", date: "2023-04-10" },
-    { name: "Jane Doe's Anniversary", date: "2023-04-15" },
-    { name: "Mainul Islam BirthDay", date: "2023-04-07" },
-    { name: "Fatema BirthDay", date: "2023-04-13" },
-    { name: "Luis BirthDay", date: "2023-04-11" },
-    { name: "Tanbir BirthDay", date: "2023-04-10" },
+    { name: "John Doe's", date: "2023-04-10" ,occassion:"Happy Birthday"},
+    { name: "Jane Doe's", date: "2023-04-15",occassion:"Happy Birthday"},
+    { name: "Mainul Islam", date: "2023-04-07",occassion:"Anniversary"},
+    { name: "Fatema", date: "2023-04-13",occassion:"Happy Birthday"},
+    { name: "Luis ", date: "2023-04-11",occassion:"Anniversary" },
+    { name: "Tanbir", date: "2023-04-10",occassion:"Happy Birthday" },
     // Add more celebrations here...
   ];
 
@@ -64,35 +68,38 @@ export default function TestPage() {
       <h2>Test Page</h2>
 
       <div>
-        <div className="w-full sm:w-1/3 bg-whitesmoke-200 mt-10 rounded p-5 border-2 border-solid">
-          <div className="flex items-center mb-1">
+        <div className="w-full sm:w-1/3 bg-whitesmoke-200 mt-10 rounded-lg  border-2 border-solid">
+          <div className="flex items-center mb-1 shadow-md p-5">
             <span className="m-1">
-              <CrownOutlined />
+              <Image src={celibration} width={22} height={28}/>
             </span>
-            <h3 className="m-1">CELEBRATIONS</h3>
+            <h3 className="m-1 text-[18px] font-semibold">CELEBRATIONS</h3>
           </div>
 
-          <div>
+          <div className="p-5">
             <ul>
-              {upcomingCelebrations.slice(0, 4).map((celebration) => (
+              {upcomingCelebrations.slice(0, 4).map((celebration,index,array) => (
                 <>
-                  <div className="flex flex-col md:flex-row justify-between w-full mt-5">
+                  <div className="flex flex-col md:flex-row justify-between w-full mt-5 items-end">
                     <div className="flex items-center mb-2 md:mb-0">
                       <Avatar size="medium" icon={<UserOutlined />} />
                       <div className="mx-2">
                         <h6 className="text-[12px] md:text-base">
                           {celebration.name}{" "}
                         </h6>
-                        <span className="text-[12px] md:text-base">
+                        <span className="text-[12px] md:text-base text-[#003087]">
                           {getDisplayDate(celebration.date)}
                         </span>
                       </div>
                     </div>
                     <div>
-                      <span>Icon</span>
+                      {
+                        celebration.occassion === "Happy Birthday" ? <Image src={cake} width={22} height={28}/> : <Image src={swans} width={22} height={28}/>
+                      }
+                     
                     </div>
                   </div>
-                  <Divider style={{ height: "4px" }} className="my-2" />
+                  {index < array.length - 1 && <Divider style={{ height: "4px" }} className="my-2" />}
                 </>
               ))}
             </ul>

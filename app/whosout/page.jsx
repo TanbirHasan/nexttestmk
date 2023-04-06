@@ -4,6 +4,8 @@ import React, { useEffect, useState } from "react";
 import { Avatar, Card, Col, Divider, Row } from "antd";
 import moment from "moment/moment";
 import { ClockCircleTwoTone, UserOutlined } from "@ant-design/icons";
+import whosout from "../../public/whosoutt.png"
+import Image from "next/image";
 
 const employeeLeaveDetails = [
   { name: "John", leaveDate: "2023-04-06" },
@@ -53,15 +55,15 @@ const sortedLeaveStatus = Object.entries(leaveStatus).sort(([a], [b]) => {
 export default function WhosOut() {
   return (
     <div className="m-10">
-      <div className="w-1/3 bg-whitesmoke-200 mt-10 rounded ">
-        <div className="flex items-center mb-1 shadow-md w-full p-5 border-2 border-solid rounded-t-lg">
-          <ClockCircleTwoTone className="m-1" />
-          <h3>WHO'S OUT</h3>
+      <div className="w-1/3 bg-whitesmoke-200 mt-10 border-2 border-solid rounded-md">
+        <div className="flex items-center mb-1 shadow-md w-full p-5">
+        <Image src={whosout} width={22} height={28}/>
+          <h3 className="text-[18px] font-semibold mx-2">WHO'S OUT</h3>
         </div>
-        <div className="border-2 border-solid rounded-b-lg">
-          {sortedLeaveStatus.map(([date, members]) => (
+        <div className="py-5">
+          {sortedLeaveStatus.map(([date, members],index,array) => (
             <div key={date} className=" px-5 ">
-              <h3>
+              <h3 className="text-[12px] my-2">
                 {date}({members?.length})
               </h3>
               <Row gutter={[16, 16]}>
@@ -76,7 +78,7 @@ export default function WhosOut() {
                   </Col>
                 ))}
               </Row>
-              <Divider className="my-2" />
+              {index < array.length - 1 && <Divider style={{ height: "4px" }} className="my-2" />}
             </div>
           ))}
         </div>
